@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp_system/ld/esp32c3/sections.ld.in */
+/* Generated from: /home/rocorbera/esp32-arduino-lib-builder/esp-idf/components/esp_system/ld/esp32c3/sections.ld.in */
 
 /*
  * SPDX-FileCopyrightText: 2021 Espressif Systems (Shanghai) CO LTD
@@ -163,7 +163,7 @@ SECTIONS
     *libesp_system.a:esp_system.*(.literal.esp_system_abort .text.esp_system_abort)
     *libesp_system.a:ubsan.*(.literal .literal.* .text .text.*)
     *libfreertos.a:(EXCLUDE_FILE(*libfreertos.a:port.* *libfreertos.a:port_common.*) .literal EXCLUDE_FILE(*libfreertos.a:port.* *libfreertos.a:port_common.*) .literal.* EXCLUDE_FILE(*libfreertos.a:port.* *libfreertos.a:port_common.*) .text EXCLUDE_FILE(*libfreertos.a:port.* *libfreertos.a:port_common.*) .text.*)
-    *libfreertos.a:port.*(.text .text.prvTaskExitError .text.pxPortInitialiseStack .text.vApplicationStackOverflowHook .text.vPortCPUAcquireMutex .text.vPortCPUAcquireMutexTimeout .text.vPortCPUInitializeMutex .text.vPortCPUReleaseMutex .text.vPortClearInterruptMask .text.vPortEndScheduler .text.vPortEnterCritical .text.vPortExitCritical .text.vPortSetInterruptMask .text.vPortSetStackWatchpoint .text.vPortYield .text.vPortYieldFromISR .text.vPortYieldOtherCore .text.xPortGetTickRateHz .text.xPortInIsrContext .text.xPortStartScheduler)
+    *libfreertos.a:port.*(.text .text.prvTaskExitError .text.pxPortInitialiseStack .text.unlikely.vPortEndScheduler .text.vApplicationStackOverflowHook .text.vPortCPUAcquireMutex .text.vPortCPUAcquireMutexTimeout .text.vPortCPUInitializeMutex .text.vPortCPUReleaseMutex .text.vPortClearInterruptMask .text.vPortEnterCritical .text.vPortExitCritical .text.vPortSetInterruptMask .text.vPortSetStackWatchpoint .text.vPortYield .text.vPortYieldFromISR .text.vPortYieldOtherCore .text.xPortGetTickRateHz .text.xPortInIsrContext .text.xPortStartScheduler)
     *libfreertos.a:port_common.*(.text .text.esp_startup_start_app_common)
     *libgcc.a:_divsf3.*(.literal .literal.* .text .text.*)
     *libgcc.a:lib2funcs.*(.literal .literal.* .text .text.*)
@@ -311,8 +311,8 @@ SECTIONS
     _bss_start = ABSOLUTE(.);
 
     *(.bss .bss.*)
-    *(.dynbss .dynsbss .gnu.linkonce.b .gnu.linkonce.b.* .gnu.linkonce.sb .gnu.linkonce.sb.* .gnu.linkonce.sb2 .gnu.linkonce.sb2.* .sbss .sbss.* .sbss2 .sbss2.* .scommon .share.mem)
     *(.ext_ram.bss .ext_ram.bss.*)
+    *(.dynbss .dynsbss .gnu.linkonce.b .gnu.linkonce.b.* .gnu.linkonce.sb .gnu.linkonce.sb.* .gnu.linkonce.sb2 .gnu.linkonce.sb2.* .sbss .sbss.* .sbss2 .sbss2.* .scommon .share.mem)
     *(COMMON)
     _bt_bss_start = ABSOLUTE(.);
     *libbt.a:(.bss .bss.* COMMON)
@@ -358,8 +358,8 @@ SECTIONS
     *(.wifislpiram .wifislpiram.*)
     *(.wifislprxiram .wifislprxiram.*)
     *libesp_event.a:default_event_loop.*(.text .text.esp_event_handler_instance_register .text.esp_event_handler_instance_unregister .text.esp_event_handler_register .text.esp_event_handler_unregister .text.esp_event_loop_create_default .text.esp_event_loop_delete_default .text.esp_event_post .text.esp_event_send_to_default_loop)
-    *libesp_event.a:esp_event.*(.text .text.base_node_add_handler .text.base_node_remove_all_handler .text.base_node_remove_handler .text.esp_event_dump .text.esp_event_handler_instance_register_with .text.esp_event_handler_instance_unregister_with .text.esp_event_handler_register_with .text.esp_event_handler_register_with_internal .text.esp_event_handler_unregister_with .text.esp_event_handler_unregister_with_internal .text.esp_event_loop_create .text.esp_event_loop_delete .text.esp_event_loop_run .text.esp_event_loop_run_task .text.esp_event_post_to .text.handler_execute .text.handler_instances_add .text.handler_instances_remove .text.handler_instances_remove_all .text.loop_node_add_handler .text.loop_node_remove_all_handler .text.loop_node_remove_handler)
-    *libesp_hw_support.a:rtc_init.*(.text .text.calibrate_ocode .text.get_dig_dbias_by_efuse .text.get_rtc_dbias_by_efuse .text.rtc_init .text.rtc_vddsdio_get_config .text.set_ocode_by_efuse .text.set_rtc_dig_dbias)
+    *libesp_event.a:esp_event.*(.text .text.base_node_add_handler .text.esp_event_dump .text.esp_event_handler_instance_register_with .text.esp_event_handler_instance_unregister_with .text.esp_event_handler_register_with .text.esp_event_handler_register_with_internal .text.esp_event_handler_unregister_with .text.esp_event_handler_unregister_with_internal .text.esp_event_loop_create .text.esp_event_loop_delete .text.esp_event_loop_run .text.esp_event_loop_run_task .text.esp_event_post_to .text.handler_instances_add.isra.2 .text.handler_instances_remove.isra.3 .text.handler_instances_remove_all.isra.1 .text.loop_node_add_handler)
+    *libesp_hw_support.a:rtc_init.*(.text .text.get_rtc_dbias_by_efuse .text.rtc_init .text.rtc_vddsdio_get_config)
     *libesp_system.a:esp_system.*(.text .text.esp_get_free_heap_size .text.esp_get_free_internal_heap_size .text.esp_get_idf_version .text.esp_get_minimum_free_heap_size .text.esp_register_shutdown_handler .text.esp_unregister_shutdown_handler)
     *libfreertos.a:port.*(.literal.esp_startup_start_app .text.esp_startup_start_app)
     *libfreertos.a:port_common.*(.literal.main_task .text.main_task)
