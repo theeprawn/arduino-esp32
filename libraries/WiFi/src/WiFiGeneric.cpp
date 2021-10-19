@@ -564,7 +564,7 @@ bool wifiLowLevelInit(bool persistent){
         cfg.static_tx_buf_num = 0;
         cfg.dynamic_tx_buf_num = 32;
         cfg.tx_buf_type = 1;
-        cfg.cache_tx_buf_num = 0;
+        cfg.cache_tx_buf_num = 1;          // it can't be zero for WPA/WPA2
         cfg.static_rx_buf_num = 4;
         cfg.dynamic_rx_buf_num = 32;
 #endif
